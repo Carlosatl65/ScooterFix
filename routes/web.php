@@ -29,7 +29,7 @@ Route::get('/vehiculos',[VehiculosController::class,'index']);
 
 Route::get('/ubicaciones',[UbicacionController::class,'index']);
 Route::get('/ubicaciones/create',[UbicacionController::class,'create'])->name('ubi.create');
-Route::post('/ubicaciones/insertar',[UbicacionController::class,'insertar'])->name('ubi.insertar');
+Route::post('/ubicaciones/insertar',[UbicacionController::class,'insertar'])->name('ubi.insertar'); // boton añadir
 
 Route::get('/proveedores',[ProveedoresController::class,'index']);
 
