@@ -28,7 +28,7 @@ Route::get('/productos',[ProductosController::class,'index']);
 Route::get('/vehiculos',[VehiculosController::class,'index']);
 
 Route::get('/ubicaciones',[UbicacionController::class,'index']);
-Route::get('/ubicaciones/create',[UbicacionController::class,'create'])->name('ubi.create');
+Route::get('/ubicaciones/create',[UbicacionController::class,'create'])->name('ubi.create'); //ruta para acceder a formulario añadir
 Route::post('/ubicaciones/insertar',[UbicacionController::class,'insertar'])->name('ubi.insertar'); // boton añadir
 
 Route::get('/proveedores',[ProveedoresController::class,'index']);
