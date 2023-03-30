@@ -23,16 +23,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/productos',[ProductosController::class,'index']);
+Route::get('/productos',[ProductosController::class,'index']); //ingresar a página productos
+Route::get('/productos/create',[ProductosController::class,'create'])->name('prod.create'); //llamar a función del botón crear
+Route::post('/productos/insertar',[ProductosController::class,'insertar'])->name('prod.insertar'); //llamar a función insertar datos en las tablas
 
-Route::get('/vehiculos',[VehiculosController::class,'index']);
+Route::get('/vehiculos',[VehiculosController::class,'index']); //ingresar a página vehículos
+Route::get('/vehiculos/create',[VehiculosController::class,'create'])->name('veh.create');//llamar a función del botón crear
+Route::post('/vehiculos/insertar',[VehiculosController::class,'insertar'])->name('veh.insertar');//llamar a función insertar datos en las tablas
 
-Route::get('/ubicaciones',[UbicacionController::class,'index']);
-Route::get('/ubicaciones/create',[UbicacionController::class,'create'])->name('ubi.create'); //ruta para acceder a formulario añadir
-Route::post('/ubicaciones/insertar',[UbicacionController::class,'insertar'])->name('ubi.insertar'); // boton añadir
 
-Route::get('/proveedores',[ProveedoresController::class,'index']);
+Route::get('/ubicaciones',[UbicacionController::class,'index']); //ingresar a página ubicaciones
+Route::get('/ubicaciones/create',[UbicacionController::class,'create'])->name('ubi.create');//llamar a función del botón crear
+Route::post('/ubicaciones/insertar',[UbicacionController::class,'insertar'])->name('ubi.insertar');//llamar a función insertar datos en las tablas
 
-Route::get('/entradas',[EntradasController::class,'index']);
+Route::get('/proveedores',[ProveedoresController::class,'index']); //ingresar a página proveedores
+Route::get('/proveedores/create',[ProveedoresController::class,'create'])->name('prov.create');//llamar a función del botón crear
+Route::post('/proveedores/insertar',[ProveedoresController::class,'insertar'])->name('prov.insertar');//llamar a función insertar datos en las tablas
 
-Route::get('/detalles',[DetallesController::class,'index']);
+Route::get('/entradas',[EntradasController::class,'index']); //ingresar a página entradas
+Route::get('/entradas/create',[EntradasController::class,'create'])->name('entr.create');//llamar a función del botón crear
+Route::post('/entradas/insertar',[EntradasController::class,'insertar'])->name('entr.insertar');//llamar a función insertar datos en las tablas
+
+Route::get('/detalles',[DetallesController::class,'index']); //ingresar a página detalles
+Route::get('/detalles/create',[DetallesController::class,'create'])->name('detal.create');//llamar a función del botón crear
+Route::post('/detalles/insertar',[DetallesController::class,'insertar'])->name('detal.insertar');//llamar a función insertar datos en las tablas
