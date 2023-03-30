@@ -20,13 +20,13 @@ class UbicacionController extends Controller
 
     public function insertar(Request $request){
         
-        $otra = new Ubicacion(); //igual a como esta en el modelo (Instancia)
-        $otra->id_ubicacion=$request->id_ubicacion;
-        $otra->fila=$request->fila;
-        $otra->anaquel=$request->anaquel;
+        $objeto = new Ubicacion(); //igual a como esta en el modelo (Instancia)
+        $objeto->id_ubicacion=$request->id_ubicacion;
+        $objeto->fila=$request->fila;
+        $objeto->anaquel=$request->anaquel;
         try{
-            $otra->save();
-            return 'Datos Guardados';
+            $objeto->save();
+            return redirect('/ubicaciones');
         }catch(Throwable $error){
             return $error->getMessage();
         }

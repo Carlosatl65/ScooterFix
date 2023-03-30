@@ -8,6 +8,8 @@
 <h1 class="text-center fw-bolder text-success">SCOOTERFIX <i class="bi bi-scooter"></i></h1> 
 <h4 class="text-center text-decoration-underline fst-italic">TABLA DE ENTRADAS</h4>
 <br><br>
+<a href="{{route('entr.create')}}" class="btn btn-outline-dark">Nuevo</a>
+<br><br>
 <table class="table table-sm table-striped table-hover table-bordered align-middle text-center">
   <thead>
     <tr class="table-dark">
