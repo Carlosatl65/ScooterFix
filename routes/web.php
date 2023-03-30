@@ -31,6 +31,7 @@ Route::get('/vehiculos',[VehiculosController::class,'index']); //ingresar a pág
 Route::get('/vehiculos/create',[VehiculosController::class,'create'])->name('veh.create');//llamar a función del botón crear
 Route::post('/vehiculos/insertar',[VehiculosController::class,'insertar'])->name('veh.insertar');//llamar a función insertar datos en las tablas
 
+
 Route::get('/ubicaciones',[UbicacionController::class,'index']); //ingresar a página ubicaciones
 Route::get('/ubicaciones/create',[UbicacionController::class,'create'])->name('ubi.create');//llamar a función del botón crear
 Route::post('/ubicaciones/insertar',[UbicacionController::class,'insertar'])->name('ubi.insertar');//llamar a función insertar datos en las tablas
