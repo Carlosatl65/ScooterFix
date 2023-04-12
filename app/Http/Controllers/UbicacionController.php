@@ -10,7 +10,7 @@ use Throwable;
 class UbicacionController extends Controller
 {
     public function index(Request $request){
-        $conjunto = Ubicacion::All(); //nombre del modelo Vehiculos
+        $conjunto = Ubicacion::paginate(5); //nombre del modelo Vehiculos
         return view('ubicaciones',['conjunto'=> $conjunto]); //se envia los datos por conjunto
     }
 
