@@ -31,6 +31,9 @@
     @endforeach
   </tbody>
 </table>
+<div class="d-flex justify-content-end">
+{{$conjunto->links()}}
+</div>
 </div>
 
 @endsection

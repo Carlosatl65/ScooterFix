@@ -10,7 +10,8 @@ use Throwable;
 class ProductosController extends Controller
 {
     public function index(Request $request){
-        $conjunto = Productos::All(); //nombre del modelo Vehiculos
+        //$conjunto = Productos::All(); //nombre del modelo Vehiculos
+        $conjunto = Productos::paginate(5);
         return view('productos',['conjunto'=> $conjunto]); //se envia los datos por conjunto
     }
     public function create(Request $request){
