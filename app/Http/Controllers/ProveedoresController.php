@@ -10,7 +10,8 @@ use Throwable;
 class ProveedoresController extends Controller
 {
     public function index(Request $request){
-        $conjunto = Proveedores::paginate(5); //nombre del modelo Vehiculos
+        //$conjunto = Proveedores::All(); //nombre del modelo Vehiculos
+        $conjunto = Proveedores::paginate(5);
         return view('proveedores',['conjunto'=> $conjunto]); //se envia los datos por conjunto
     }
 
