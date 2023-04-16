@@ -24,7 +24,7 @@
 <table class="table table-sm table-striped table-hover table-bordered align-middle text-center">
   <thead>
     <tr class="table-dark">
-      <th scope="col">Identificador</th>
+      <th scope="col">Nombre de Lugar</th>
       <th scope="col">Fila</th>
       <th scope="col">Anaquel</th>
       <th scope="col">Acciones</th>
@@ -33,7 +33,7 @@
   <tbody class="table-group-divider">
     @foreach($conjunto as $item)
     <tr>
-        <th>{{$item->id_ubicacion}}</th>
+        <th>{{$item->nombre}}</th>
         <th>{{$item->fila}}</th>
         <th>{{$item->anaquel}}</th>
         <td>

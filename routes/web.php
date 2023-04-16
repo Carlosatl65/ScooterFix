@@ -30,6 +30,12 @@ Route::post('/productos/insertar',[ProductosController::class,'insertar'])->name
 Route::get('/vehiculos',[VehiculosController::class,'index']); //ingresar a página vehículos
 Route::get('/vehiculos/create',[VehiculosController::class,'create'])->name('veh.create');//llamar a función del botón crear
 Route::post('/vehiculos/insertar',[VehiculosController::class,'insertar'])->name('veh.insertar');//llamar a función insertar datos en las tablas
+//editar
+Route::get('/vehiculos/update/{idvehiculo}',[VehiculosController::class,'update'])->name('veh.update');//llamar a función del botón editar
+Route::put('/vehiculos/edit/{idvehiculo}',[VehiculosController::class,'edit'])->name('veh.edit');//llamar a función editar datos en las tablas
+//eliminar
+Route::get('/vehiculos/borrar/{idvehiculo}',[VehiculosController::class,'borrar'])->name('veh.borrar');//llamar a función del botón eliminar
+Route::delete('/vehiculos/delete/{idvehiculo}',[VehiculosController::class,'delete'])->name('veh.delete');//llamar a función delete datos en las tablas
 
 
 Route::get('/ubicaciones',[UbicacionController::class,'index']); //ingresar a página ubicaciones

@@ -22,7 +22,7 @@ class UbicacionController extends Controller
     public function insertar(Request $request){
         
         $objeto = new Ubicacion(); //igual a como esta en el modelo (Instancia)
-        $objeto->id_ubicacion=$request->id_ubicacion;
+        $objeto->nombre=$request->nombre;
         $objeto->fila=$request->fila;
         $objeto->anaquel=$request->anaquel;
         try{

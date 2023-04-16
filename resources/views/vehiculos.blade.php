@@ -35,8 +35,8 @@
         <th>{{$item->nombre}}</th>
         <th>{{$item->modelo}}</th>
         <td>
-            <button type="button" class="btn btn-warning btn-sm"><i class="bi bi-pencil-fill"></i></button>
-            <button type="button" class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i></button>
+            <a type="button" class="btn btn-warning btn-sm" href="{{route('veh.update',$item->idvehiculo)}}"><i class="bi bi-pencil-fill"></i></a>
+            <a type="button" class="btn btn-danger btn-sm" href="{{route('veh.borrar',$item->idvehiculo)}}"><i class="bi bi-trash-fill"></i></a>
         </td>
     </tr>
     @endforeach

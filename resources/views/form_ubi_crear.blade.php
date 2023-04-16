@@ -5,8 +5,8 @@
         <form action="{{route('ubi.insertar')}}" method="post">
             @csrf ()
             <div class="form-group">
-                <label class="form-label">Identificador de Ubicación</label>
-                <input type="text" class="form-control" name="id_ubicacion" placeholder="Id">
+                <label class="form-label">Nombre de Ubicación</label>
+                <input type="text" class="form-control" name="nombre" placeholder="Nombre de ubicación">
             </div>
             <div class="form-group">
                 <label class="form-label">Número de Fila</label>
