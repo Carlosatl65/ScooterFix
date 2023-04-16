@@ -15,6 +15,7 @@ class DetallesController extends Controller
         return view('detalles',['conjunto'=> $conjunto]); //se envia los datos por conjunto
     }
 
+    //insertar
     public function create(Request $request){
         return view('form_detal_crear');
     }
@@ -35,4 +36,42 @@ class DetallesController extends Controller
         }
 
     }
+
+    //editar
+    public function update($id_detalle){
+        $id_detalle1 = Detalles::find($id_detalle);
+        return view('edit_ubicaciones',['registro' => $id_detalle1]);
+    }
+
+    public function edit(Request $request, $id_detalle){
+        $id_detalle1 = Detalles::find($id_detalle);
+        $id_detalle1->id_producto = $request->id_producto;
+        $id_detalle1->id_entradas = $request->id_entradas;
+        $id_detalle1->cantidad = $request->cantidad;
+        $id_detalle1->valor_unitario = $request->valor_unitario;
+        $id_detalle1->valor_total = $request->valor_total;
+        try{
+            $id_detalle1 ->save();
+            return redirect('/detalles');
+        }catch(Throwable $error){
+            return $error->getMessage();
+        }
+    }
+
+    //borrar
+    public function borrar($id_detalle){
+        $id_detalle1 = Detalles::find($id_detalle);
+        return view('delete_ubicaciones',['registro' => $id_detalle1]);
+    }
+
+    public function delete($id_detalle){
+        $id_detalle1 = Detalles::find($id_detalle);
+        try{
+            $id_detalle1 ->delete();
+            return redirect('/detalles');
+        }catch(Throwable $error){
+            return $error->getMessage();
+        }
+    }
+
 }

@@ -10,4 +10,5 @@ class Detalles extends Model
     use HasFactory;
     public $timestamps=false; //hacer que larabel no haga auditoría en las tablas
     protected $table="detalles"; //nombre de la tabla de la base de datos entre comillas
+    protected $primaryKey = "id_detalle";
 }

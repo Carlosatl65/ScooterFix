@@ -44,8 +44,8 @@
         <th>{{$item->iva_12}}</th>
         <th>{{$item->total_pagar}}</th>
         <td>
-            <button type="button" class="btn btn-warning btn-sm"><i class="bi bi-pencil-fill"></i></button>
-            <button type="button" class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i></button>
+            <a type="button" class="btn btn-warning btn-sm" href="{{route('entr.update',$item->id_entradas)}}"><i class="bi bi-pencil-fill"></i></a>
+            <a type="button" class="btn btn-danger btn-sm" href="{{route('entr.borrar',$item->id_entradas)}}"><i class="bi bi-trash-fill"></i></a>
         </td>
     </tr>
     @endforeach

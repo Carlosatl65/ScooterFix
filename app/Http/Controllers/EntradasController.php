@@ -15,6 +15,7 @@ class EntradasController extends Controller
         return view('entradas',['conjunto'=> $conjunto]); //se envia los datos por conjunto
     }
 
+    //insertar
     public function create(Request $request){
         return view('form_entr_crear');
     }
@@ -36,4 +37,43 @@ class EntradasController extends Controller
         }
 
     }
+
+    //editar
+    public function update($id_entradas){
+        $id_entradas1 = Entradas::find($id_entradas);
+        return view('edit_entradas',['registro' => $id_entradas1]);
+    }
+
+    public function edit(Request $request, $id_entradas){
+        $id_entradas1 = Entradas::find($id_entradas);
+        $id_entradas1->fecha_entrada = $request->fecha_entrada;
+        $id_entradas1->id_proveedor = $request->id_proveedor;
+        $id_entradas1->subtotal = $request->subtotal;
+        $id_entradas1->iva_0 = $request->iva_0;
+        $id_entradas1->iva_12 = $request->iva_12;
+        $id_entradas1->total_pagar = $request->total_pagar;
+        try{
+            $id_entradas1 ->save();
+            return redirect('/entradas');
+        }catch(Throwable $error){
+            return $error->getMessage();
+        }
+    }
+
+    //borrar
+    public function borrar($id_entradas){
+        $id_entradas1 = Entradas::find($id_entradas);
+        return view('delete_entradas',['registro' => $id_entradas1]);
+    }
+
+    public function delete($id_entradas){
+        $id_entradas1 = Entradas::find($id_entradas);
+        try{
+            $id_entradas1 ->delete();
+            return redirect('/entradas');
+        }catch(Throwable $error){
+            return $error->getMessage();
+        }
+    }
+    
 }

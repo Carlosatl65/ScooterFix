@@ -10,4 +10,5 @@ class Productos extends Model
     use HasFactory;
     public $timestamps=false; //hacer que larabel no haga auditoría en las tablas
     protected $table="productos"; //nombre de la base de datos entre comillas
+    protected $primaryKey = "id_producto";
 }

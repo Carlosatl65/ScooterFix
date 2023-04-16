@@ -24,7 +24,7 @@
 <table class="table table-sm table-striped table-hover table-bordered align-middle text-center">
   <thead>
     <tr class="table-dark">
-      <th scope="col">Identificador</th>
+      <th scope="col">Nombre de Lugar</th>
       <th scope="col">Fila</th>
       <th scope="col">Anaquel</th>
       <th scope="col">Acciones</th>
@@ -33,12 +33,12 @@
   <tbody class="table-group-divider">
     @foreach($conjunto as $item)
     <tr>
-        <th>{{$item->id_ubicacion}}</th>
+        <th>{{$item->nombre}}</th>
         <th>{{$item->fila}}</th>
         <th>{{$item->anaquel}}</th>
         <td>
-            <button type="button" class="btn btn-warning btn-sm"><i class="bi bi-pencil-fill"></i></button>
-            <button type="button" class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i></button>
+            <a type="button" class="btn btn-warning btn-sm" href="{{route('ubi.update',$item->id_ubicacion)}}"><i class="bi bi-pencil-fill"></i></a>
+            <a type="button" class="btn btn-danger btn-sm" href="{{route('ubi.borrar',$item->id_ubicacion)}}"><i class="bi bi-trash-fill"></i></a>
         </td>
     </tr>
     @endforeach

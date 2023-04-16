@@ -46,8 +46,8 @@
         <th>{{$item->precio_compra}}</th>
         <th>{{$item->valor_venta}}</th>
         <td>
-            <button type="button" class="btn btn-warning btn-sm"><i class="bi bi-pencil-fill"></i></button>
-            <button type="button" class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i></button>
+            <a type="button" class="btn btn-warning btn-sm" href="{{route('prod.update',$item->id_producto)}}"><i class="bi bi-pencil-fill"></i></a>
+            <a type="button" class="btn btn-danger btn-sm" href="{{route('prod.borrar',$item->id_producto)}}"><i class="bi bi-trash-fill"></i></a>
         </td>
     </tr>
     @endforeach

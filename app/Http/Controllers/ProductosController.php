@@ -14,6 +14,8 @@ class ProductosController extends Controller
         $conjunto = Productos::paginate(5);
         return view('productos',['conjunto'=> $conjunto]); //se envia los datos por conjunto
     }
+
+    //insertar
     public function create(Request $request){
         return view('form_prod_crear');
     }
@@ -36,4 +38,44 @@ class ProductosController extends Controller
         }
 
     }
+
+    //editar
+    public function update($id_producto){
+        $id_producto1 = Productos::find($id_producto);
+        return view('edit_productos',['registro' => $id_producto1]);
+    }
+
+    public function edit(Request $request, $id_producto){
+        $id_producto1 = Productos::find($id_producto);
+        $id_producto1->nombre=$request->nombre;
+        $id_producto1->descripcion=$request->descripcion;
+        $id_producto1->id_vehiculo=$request->id_vehiculo;
+        $id_producto1->id_ubicacion=$request->id_ubicacion;
+        $id_producto1->unidades=$request->unidades;
+        $id_producto1->precio_compra=$request->precio_compra;
+        $id_producto1->valor_venta=$request->valor_venta;
+        try{
+            $id_producto1 ->save();
+            return redirect('/productos');
+        }catch(Throwable $error){
+            return $error->getMessage();
+        }
+    }
+
+    //borrar
+    public function borrar($id_producto){
+        $id_producto1 = Productos::find($id_producto);
+        return view('delete_productos',['registro' => $id_producto1]);
+    }
+
+    public function delete($id_producto){
+        $id_producto1 = Productos::find($id_producto);
+        try{
+            $id_producto1 ->delete();
+            return redirect('/productos');
+        }catch(Throwable $error){
+            return $error->getMessage();
+        }
+    }
+
 }

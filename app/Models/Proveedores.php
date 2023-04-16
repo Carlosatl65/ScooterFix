@@ -10,4 +10,5 @@ class Proveedores extends Model
     use HasFactory;
     public $timestamps=false; //hacer que larabel no haga auditoría en las tablas
     protected $table="proveedores"; //nombre de la base de datos entre comillas
+    protected $primaryKey = "id_proveedor";
 }
