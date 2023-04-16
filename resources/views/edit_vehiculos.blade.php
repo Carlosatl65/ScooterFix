@@ -13,7 +13,7 @@
                 <label class="form-label">Modelo de Vehículo</label>
                 <input type="text" class="form-control" name="modelo" placeholder="Modelo" value="{{$registro->modelo}}">
             </div><br>
-            <button class="btn btn-primary">Editar</button>
+            <button class="btn btn-warning">Editar</button>
         </form>
     </div>
 </div>
