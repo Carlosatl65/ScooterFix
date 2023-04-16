@@ -42,8 +42,8 @@
         <th>{{$item->valor_unitario}}</th>
         <th>{{$item->valor_total}}</th>
         <td>
-            <button type="button" class="btn btn-warning btn-sm"><i class="bi bi-pencil-fill"></i></button>
-            <button type="button" class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i></button>
+            <a type="button" class="btn btn-warning btn-sm" href="{{route('detal.update',$item->id_detalle)}}"><i class="bi bi-pencil-fill"></i></a>
+            <a type="button" class="btn btn-danger btn-sm" href="{{route('detal.borrar',$item->id_detalle)}}"><i class="bi bi-trash-fill"></i></a>
         </td>
     </tr>
     @endforeach

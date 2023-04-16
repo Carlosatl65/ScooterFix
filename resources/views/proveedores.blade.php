@@ -40,8 +40,8 @@
         <th>{{$item->celular_proveedor}}</th>
         <th>{{$item->correo_proveedor}}</th>
         <td>
-            <button type="button" class="btn btn-warning btn-sm"><i class="bi bi-pencil-fill"></i></button>
-            <button type="button" class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i></button>
+            <a type="button" class="btn btn-warning btn-sm" href="{{route('prov.update',$item->id_proveedor)}}"><i class="bi bi-pencil-fill"></i></a>
+            <a type="button" class="btn btn-danger btn-sm" href="{{route('prov.borrar',$item->id_proveedor)}}"><i class="bi bi-trash-fill"></i></a>
         </td>
     </tr>
     @endforeach

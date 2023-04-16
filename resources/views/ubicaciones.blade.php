@@ -37,8 +37,8 @@
         <th>{{$item->fila}}</th>
         <th>{{$item->anaquel}}</th>
         <td>
-            <button type="button" class="btn btn-warning btn-sm"><i class="bi bi-pencil-fill"></i></button>
-            <button type="button" class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i></button>
+            <a type="button" class="btn btn-warning btn-sm" href="{{route('ubi.update',$item->id_ubicacion)}}"><i class="bi bi-pencil-fill"></i></a>
+            <a type="button" class="btn btn-danger btn-sm" href="{{route('ubi.borrar',$item->id_ubicacion)}}"><i class="bi bi-trash-fill"></i></a>
         </td>
     </tr>
     @endforeach

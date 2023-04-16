@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="{{asset('build/assets/app-67dcdfd2.css')}}"/>
-<br><br><br><br><h1 class="text-center fw-bolder">FORMULARIO DE EDITAR DE VEHICULOS</h1>
+<br><br><br><br><h1 class="text-center fw-bolder text-warning">EDITAR VEHICULO</h1>
 <div class="card position-absolute top-50 start-50 translate-middle" style="width: 35rem;">
      <div class="card-body">
         <form action="{{route('veh.edit', $registro->idvehiculo)}}" method="post">

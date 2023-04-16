@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="{{asset('build/assets/app-67dcdfd2.css')}}"/>
-<br><br><br><br><h1 class="text-center fw-bolder">ELIMINAR DE VEHICULOS</h1>
+<br><br><br><br><h1 class="text-center fw-bolder text-danger">CONFIRMACIÓN DE ELIMINAR VEHICULO</h1>
 <div class="card position-absolute top-50 start-50 translate-middle" style="width: 35rem;">
      <div class="card-body">
         <form action="{{route('veh.delete', $registro->idvehiculo)}}" method="post">
@@ -13,7 +13,7 @@
                 <label class="form-label">Modelo de Vehículo</label>
                 <input type="text" class="form-control" name="modelo" placeholder="Modelo" value="{{$registro->modelo}}" disabled>
             </div><br>
-            <button class="btn btn-primary">Eliminar</button>
+            <button class="btn btn-primary">Borrar</button>
         </form>
     </div>
 </div>
