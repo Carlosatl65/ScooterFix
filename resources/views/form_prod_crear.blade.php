@@ -14,11 +14,21 @@
             </div>
             <div class="form-group">
                 <label class="form-label">Vehículo</label>
-                <input type="text" class="form-control"  name="id_vehiculo" placeholder="Vehículo">
+                <!-- <input type="text" class="form-control"  name="id_vehiculo" placeholder="Vehículo"> -->
+                <select class="form-select form-select-sm" name="id_vehiculo" id="">
+                    @foreach($selec_vehiculos as $option)
+                    <option value="{{$option->idvehiculo}}">{{$option->nombre}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label class="form-label">Ubicacion</label>
-                <input type="text" class="form-control" name="id_ubicacion" placeholder="Ubicación">
+                <!-- <input type="text" class="form-control" name="id_ubicacion" placeholder="Ubicación"> -->
+                <select class="form-select form-select-sm" name="id_ubicacion" id="">
+                    @foreach($selec_ubicaciones as $option)
+                    <option value="{{$option->id_ubicacion}}">{{$option->nombre}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label class="form-label">Unidades</label>

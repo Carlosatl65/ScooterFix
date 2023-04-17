@@ -15,11 +15,11 @@
             </div>
             <div class="form-group">
                 <label class="form-label">Vehículo</label>
-                <input type="text" class="form-control"  name="id_vehiculo" placeholder="Vehículo" value="{{$registro->id_vehiculo}}" disabled>
+                <input type="text" class="form-control"  name="id_vehiculo" placeholder="Vehículo" value="{{$selec_vehiculos->nombre}}" disabled>
             </div>
             <div class="form-group">
                 <label class="form-label">Ubicacion</label>
-                <input type="text" class="form-control" name="id_ubicacion" placeholder="Ubicación" value="{{$registro->id_ubicacion}}" disabled>
+                <input type="text" class="form-control" name="id_ubicacion" placeholder="Ubicación" value="{{$selec_ubicaciones->nombre}}" disabled>
             </div>
             <div class="form-group">
                 <label class="form-label">Unidades</label>

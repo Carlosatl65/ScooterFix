@@ -8,7 +8,7 @@
             @csrf ()
             <div class="form-group">
                 <label class="form-label">Producto</label>
-                <input type="text" class="form-control" name="id_producto" placeholder="Id" value="{{$registro->id_producto}}" disabled>
+                <input type="text" class="form-control" name="id_producto" placeholder="Id" value="{{$selec_producto->nombre}}" disabled>
             </div>
             <div class="form-group">
                 <label class="form-label">Entrada</label>
