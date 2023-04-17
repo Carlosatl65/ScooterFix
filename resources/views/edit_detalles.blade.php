@@ -8,11 +8,21 @@
             @csrf ()
             <div class="form-group">
                 <label class="form-label">Producto</label>
-                <input type="text" class="form-control" name="id_producto" placeholder="Id" value="{{$registro->id_producto}}">
+                <!-- <input type="text" class="form-control" name="id_producto" placeholder="Id" value="{{$registro->id_producto}}"> -->
+                <select class="form-select form-select-sm" name="id_producto" id="">
+                    @foreach($selec_producto as $option)
+                    <option value="{{$option->id_producto}}" {{$registro->id_producto == $option->id_producto ? 'selected':''}}>{{$option->nombre}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label class="form-label">Entrada</label>
-                <input type="text" class="form-control" name="id_entradas" placeholder="Id" value="{{$registro->id_entradas}}">
+                <!-- <input type="text" class="form-control" name="id_entradas" placeholder="Id" value="{{$registro->id_entradas}}"> -->
+                <select class="form-select form-select-sm" name="id_entradas" id="">
+                    @foreach($selec_entrada as $option)
+                    <option value="{{$option->id_entradas}}" {{$registro->id_entradas == $option->id_entradas ? 'selected':''}}>Factura N° {{$option->id_entradas}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label class="form-label">Cantidad</label>

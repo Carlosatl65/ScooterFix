@@ -13,7 +13,12 @@
             </div>
             <div class="form-group">
                 <label class="form-label">Proveedor</label>
-                <input type="text" class="form-control" name="id_proveedor" placeholder="Proveedor" value="{{$registro->id_proveedor}}">
+                <!-- <input type="text" class="form-control" name="id_proveedor" placeholder="Proveedor" value="{{$registro->id_proveedor}}"> -->
+                <select class="form-select form-select-sm" name="id_proveedor">
+                    @foreach($selec_proveedor as $option)
+                    <option value="{{$option->id_proveedor}}" {{$registro->id_proveedor == $option->id_proveedor ? 'selected':''}}>{{$option->nombre_proveedor}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label class="form-label">Subtotal</label>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Detalles;
+use App\Models\Productos;
+use App\Models\Entradas;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\TryCatch;
 use Throwable;
@@ -17,7 +19,9 @@ class DetallesController extends Controller
 
     //insertar
     public function create(Request $request){
-        return view('form_detal_crear');
+        $selec_producto = Productos::All();
+        $selec_entrada = Entradas::All();
+        return view('form_detal_crear',['selec_producto'=>$selec_producto],['selec_entrada'=>$selec_entrada]);
     }
 
     public function insertar(Request $request){
@@ -39,8 +43,10 @@ class DetallesController extends Controller
 
     //editar
     public function update($id_detalle){
-        $id_detalle1 = Detalles::find($id_detalle);
-        return view('edit_ubicaciones',['registro' => $id_detalle1]);
+        $registro = Detalles::find($id_detalle);
+        $selec_producto = Productos::All();
+        $selec_entrada = Entradas::All();
+        return view('edit_detalles',compact('registro','selec_producto','selec_entrada'));
     }
 
     public function edit(Request $request, $id_detalle){
@@ -60,8 +66,10 @@ class DetallesController extends Controller
 
     //borrar
     public function borrar($id_detalle){
-        $id_detalle1 = Detalles::find($id_detalle);
-        return view('delete_ubicaciones',['registro' => $id_detalle1]);
+        $registro = Detalles::find($id_detalle);
+        $selec_producto = Productos::find($registro['id_producto']);
+        $selec_entrada = Entradas::find($registro['id_entradas']);
+        return view('delete_detalles',compact('registro','selec_producto','selec_entrada'));
     }
 
     public function delete($id_detalle){

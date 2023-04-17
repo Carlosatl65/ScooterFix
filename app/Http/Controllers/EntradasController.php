@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Entradas;
+use App\Models\Proveedores;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\TryCatch;
 use Throwable;
@@ -17,7 +18,8 @@ class EntradasController extends Controller
 
     //insertar
     public function create(Request $request){
-        return view('form_entr_crear');
+        $selec_proveedor = Proveedores::All();
+        return view('form_entr_crear', ['selec_proveedor'=> $selec_proveedor]);
     }
 
     public function insertar(Request $request){
@@ -41,7 +43,8 @@ class EntradasController extends Controller
     //editar
     public function update($id_entradas){
         $id_entradas1 = Entradas::find($id_entradas);
-        return view('edit_entradas',['registro' => $id_entradas1]);
+        $selec_proveedor = Proveedores::All();
+        return view('edit_entradas',['registro' => $id_entradas1],['selec_proveedor'=>$selec_proveedor]);
     }
 
     public function edit(Request $request, $id_entradas){
@@ -63,7 +66,8 @@ class EntradasController extends Controller
     //borrar
     public function borrar($id_entradas){
         $id_entradas1 = Entradas::find($id_entradas);
-        return view('delete_entradas',['registro' => $id_entradas1]);
+        $selec_proveedor = Proveedores::find($id_entradas1['id_proveedor']);
+        return view('delete_entradas',['registro' => $id_entradas1], ['selec_proveedor'=>$selec_proveedor]);
     }
 
     public function delete($id_entradas){

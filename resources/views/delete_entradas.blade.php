@@ -13,7 +13,7 @@
             </div>
             <div class="form-group">
                 <label class="form-label">Proveedor</label>
-                <input type="text" class="form-control" name="id_proveedor" placeholder="Proveedor" value="{{$registro->id_proveedor}}" disabled>
+                <input type="text" class="form-control" name="id_proveedor" placeholder="Proveedor" value="{{$selec_proveedor->nombre_proveedor}}" disabled>
             </div>
             <div class="form-group">
                 <label class="form-label">Subtotal</label>

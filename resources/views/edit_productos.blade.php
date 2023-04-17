@@ -15,11 +15,21 @@
             </div>
             <div class="form-group">
                 <label class="form-label">Vehículo</label>
-                <input type="text" class="form-control"  name="id_vehiculo" placeholder="Vehículo" value="{{$registro->id_vehiculo}}">
+                <!-- <input type="text" class="form-control"  name="id_vehiculo" placeholder="Vehículo" value="{{$registro->id_vehiculo}}"> -->
+                <select class="form-select form-select-sm" name="id_vehiculo" id="">
+                    @foreach($selec_vehiculos as $option)
+                    <option value="{{$option->idvehiculo}}" {{$registro->id_vehiculo == $option->idvehiculo ? 'selected':''}}>{{$option->nombre}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label class="form-label">Ubicacion</label>
-                <input type="text" class="form-control" name="id_ubicacion" placeholder="Ubicación" value="{{$registro->id_ubicacion}}">
+                <!-- <input type="text" class="form-control" name="id_ubicacion" placeholder="Ubicación" value="{{$registro->id_ubicacion}}"> -->
+                <select class="form-select form-select-sm" name="id_ubicacion">
+                    @foreach($selec_ubicaciones as $option)
+                    <option value="{{$option->id_ubicacion}}" {{$registro->id_ubicacion == $option->id_ubicacion ? 'selected':''}}>{{$option->nombre}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label class="form-label">Unidades</label>

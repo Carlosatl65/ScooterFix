@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Productos;
+use App\Models\Vehiculos;
+use App\Models\Ubicacion;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\TryCatch;
 use Throwable;
@@ -17,7 +19,9 @@ class ProductosController extends Controller
 
     //insertar
     public function create(Request $request){
-        return view('form_prod_crear');
+        $selec_vehiculos = Vehiculos::All(); //pluck('nombre','idvehiculo');
+        $selec_ubicaciones = Ubicacion::All();
+        return view('form_prod_crear',['selec_vehiculos'=> $selec_vehiculos], ['selec_ubicaciones'=> $selec_ubicaciones]);
     }
 
     public function insertar(Request $request){
@@ -41,8 +45,11 @@ class ProductosController extends Controller
 
     //editar
     public function update($id_producto){
-        $id_producto1 = Productos::find($id_producto);
-        return view('edit_productos',['registro' => $id_producto1]);
+        $selec_vehiculos = Vehiculos::All(); //pluck('nombre','idvehiculo');
+        $selec_ubicaciones = Ubicacion::All();
+        $registro = Productos::find($id_producto);
+        return view('edit_productos',compact('registro','selec_vehiculos','selec_ubicaciones'));
+        //return view('edit_productos',['registro' => $id_producto1], ['selec_ubicaciones'=> $selec_ubicaciones],['selec_vehiculos'=> $selec_vehiculos]);
     }
 
     public function edit(Request $request, $id_producto){
@@ -64,8 +71,10 @@ class ProductosController extends Controller
 
     //borrar
     public function borrar($id_producto){
-        $id_producto1 = Productos::find($id_producto);
-        return view('delete_productos',['registro' => $id_producto1]);
+        $registro = Productos::find($id_producto);
+        $selec_vehiculos = Vehiculos::find($registro['id_vehiculo']); //pluck('nombre','idvehiculo');
+        return view('delete_productos',compact('registro','selec_vehiculos'));
+        //return view('delete_productos',['registro' => $id_producto1]);
     }
 
     public function delete($id_producto){
