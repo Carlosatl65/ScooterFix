@@ -14,10 +14,7 @@
     <a href="{{route('entr.create')}}" class="btn btn-outline-dark">Nuevo</a>
   </div>
   <div class="col-3 d-flex justify-content-end">
-    <form action="" class="d-flex" method="get">
-      <input class="form-control me-2" type="search" placeholder="Buscar" name="txt_buscar">
-      <button class="btn btn-outline-success" type="submit">Buscar</button>
-    </form>
+      <a class="btn btn-outline-success" href="{{route('entr.reporte')}}">Imprimir PDF</a>
   </div>
 </div>
 

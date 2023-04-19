@@ -7,6 +7,7 @@ use App\Models\Proveedores;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\TryCatch;
 use Throwable;
+use PDF;
 
 class EntradasController extends Controller
 {
@@ -80,4 +81,11 @@ class EntradasController extends Controller
         }
     }
     
+    //reportes
+    public function reporte(){
+        $conjunto = Entradas::All();
+        return PDF::loadView('reporte_entradas',compact('conjunto'))->stream('Reporte de Entradas.pdf');
+        
+    }
+
 }

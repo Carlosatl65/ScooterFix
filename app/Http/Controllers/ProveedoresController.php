@@ -6,6 +6,7 @@ use App\Models\Proveedores;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\TryCatch;
 use Throwable;
+use PDF;
 
 class ProveedoresController extends Controller
 {
@@ -70,6 +71,14 @@ class ProveedoresController extends Controller
         }catch(Throwable $error){
             return $error->getMessage();
         }
+    }
+
+    //reportes
+    public function reporte(){
+        $conjunto = Proveedores::All();
+
+        return PDF::loadView('reporte_proveedores',compact('conjunto'))->stream('Reporte de Proveedores.pdf');
+        
     }
 
 }
