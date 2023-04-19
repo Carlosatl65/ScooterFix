@@ -8,6 +8,7 @@ use App\Models\Entradas;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\TryCatch;
 use Throwable;
+use PDF;
 
 class DetallesController extends Controller
 {
@@ -80,6 +81,13 @@ class DetallesController extends Controller
         }catch(Throwable $error){
             return $error->getMessage();
         }
+    }
+
+    //reportes
+    public function reporte(){
+        $conjunto = Detalles::All();
+        return PDF::loadView('reporte_detalles',compact('conjunto'))->stream('Reporte de Detalles.pdf');
+        
     }
 
 }

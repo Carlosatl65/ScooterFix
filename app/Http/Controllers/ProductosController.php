@@ -8,6 +8,7 @@ use App\Models\Ubicacion;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\TryCatch;
 use Throwable;
+use PDF;
 
 class ProductosController extends Controller
 {
@@ -73,7 +74,8 @@ class ProductosController extends Controller
     public function borrar($id_producto){
         $registro = Productos::find($id_producto);
         $selec_vehiculos = Vehiculos::find($registro['id_vehiculo']); //pluck('nombre','idvehiculo');
-        return view('delete_productos',compact('registro','selec_vehiculos'));
+        $selec_ubicaciones = Ubicacion::find($registro['id_ubicacion']);
+        return view('delete_productos',compact('registro','selec_vehiculos','selec_ubicaciones'));
         //return view('delete_productos',['registro' => $id_producto1]);
     }
 
@@ -85,6 +87,15 @@ class ProductosController extends Controller
         }catch(Throwable $error){
             return $error->getMessage();
         }
+    }
+
+    //reportes
+    public function reporte(){
+        $conjunto = Productos::All();
+        $vehiculo = Vehiculos::All();
+        $ubicacion = Ubicacion::All();                
+        return PDF::loadView('reporte_productos',compact('conjunto','vehiculo','ubicacion'))->stream('Reporte de Productos.pdf');
+        
     }
 
 }

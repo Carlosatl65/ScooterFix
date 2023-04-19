@@ -6,6 +6,7 @@ use App\Models\Vehiculos;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\TryCatch;
 use Throwable;
+use PDF;
 
 class VehiculosController extends Controller
 {
@@ -66,6 +67,19 @@ class VehiculosController extends Controller
         }catch(Throwable $error){
             return $error->getMessage();
         }
+    }
+
+
+    //reportes
+    public function reporte(){
+        $conjunto = Vehiculos::All();
+        /* $datos=[
+            'nombre'=> $conjunto['nombre'],
+            'modelo'=> $conjunto['modelo']
+        ]; */
+
+        return PDF::loadView('reporte_vehiculos',compact('conjunto'))->stream('Reporte de Vehiculos.pdf');
+        //return view('reporte_vehiculo');
     }
 
 }

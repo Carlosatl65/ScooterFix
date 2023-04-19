@@ -33,6 +33,9 @@ Route::put('/productos/edit/{id_producto}',[ProductosController::class,'edit'])-
 //eliminar
 Route::get('/productos/borrar/{id_producto}',[ProductosController::class,'borrar'])->name('prod.borrar');//llamar a función del botón eliminar
 Route::delete('/productos/delete/{id_producto}',[ProductosController::class,'delete'])->name('prod.delete');//llamar a función delete datos en las tablas
+//reportes
+Route::get('/productos/reporte',[ProductosController::class,'reporte'])->name('prod.reporte'); //llamar a función reporte
+
 
 /* -------------------------------------------------------------------------------------------------- */
 
@@ -46,6 +49,8 @@ Route::put('/vehiculos/edit/{idvehiculo}',[VehiculosController::class,'edit'])->
 //eliminar
 Route::get('/vehiculos/borrar/{idvehiculo}',[VehiculosController::class,'borrar'])->name('veh.borrar');//llamar a función del botón eliminar
 Route::delete('/vehiculos/delete/{idvehiculo}',[VehiculosController::class,'delete'])->name('veh.delete');//llamar a función delete datos en las tablas
+//reportes
+Route::get('/vehiculos/reporte',[VehiculosController::class,'reporte'])->name('veh.reporte'); //llamar a función reporte
 
 /* -------------------------------------------------------------------------------------------------- */
 
@@ -59,6 +64,9 @@ Route::put('/ubicaciones/edit/{id_ubicacion}',[UbicacionController::class,'edit'
 //eliminar
 Route::get('/ubicaciones/borrar/{id_ubicacion}',[UbicacionController::class,'borrar'])->name('ubi.borrar');//llamar a función del botón eliminar
 Route::delete('/ubicaciones/delete/{id_ubicacion}',[UbicacionController::class,'delete'])->name('ubi.delete');//llamar a función delete datos en las tablas
+//reporte
+Route::get('/ubicaciones/reporte',[UbicacionController::class,'reporte'])->name('ubi.reporte'); //llamar a función reporte
+
 
 /* -------------------------------------------------------------------------------------------------- */
 
@@ -72,6 +80,9 @@ Route::put('/proveedores/edit/{id_proveedor}',[ProveedoresController::class,'edi
 //eliminar
 Route::get('/proveedores/borrar/{id_proveedor}',[ProveedoresController::class,'borrar'])->name('prov.borrar');//llamar a función del botón eliminar
 Route::delete('/proveedores/delete/{id_proveedor}',[ProveedoresController::class,'delete'])->name('prov.delete');//llamar a función delete datos en las tablas
+//reporte
+Route::get('/proveedores/reporte',[ProveedoresController::class,'reporte'])->name('prov.reporte'); //llamar a función reporte
+
 
 /* -------------------------------------------------------------------------------------------------- */
 
@@ -85,6 +96,9 @@ Route::put('/entradas/edit/{id_entradas}',[EntradasController::class,'edit'])->n
 //eliminar
 Route::get('/entradas/borrar/{id_entradas}',[EntradasController::class,'borrar'])->name('entr.borrar');//llamar a función del botón eliminar
 Route::delete('/entradas/delete/{id_entradas}',[EntradasController::class,'delete'])->name('entr.delete');//llamar a función delete datos en las tablas
+//reporte
+Route::get('/entradas/reporte',[EntradasController::class,'reporte'])->name('entr.reporte'); //llamar a función reporte
+
 
 /* -------------------------------------------------------------------------------------------------- */
 
@@ -98,3 +112,9 @@ Route::put('/detalles/edit/{id_detalle}',[DetallesController::class,'edit'])->na
 //eliminar
 Route::get('/detalles/borrar/{id_detalle}',[DetallesController::class,'borrar'])->name('detal.borrar');//llamar a función del botón eliminar
 Route::delete('/detalles/delete/{id_detalle}',[DetallesController::class,'delete'])->name('detal.delete');//llamar a función delete datos en las tablas
+//reporte
+Route::get('/detalles/reporte',[DetallesController::class,'reporte'])->name('detal.reporte'); //llamar a función reporte
+
+/* -------------------------------------------------------------------------------------------------- */
+
+

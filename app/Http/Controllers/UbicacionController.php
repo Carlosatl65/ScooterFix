@@ -6,6 +6,7 @@ use App\Models\Ubicacion;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\TryCatch;
 use Throwable;
+use PDF;
 
 class UbicacionController extends Controller
 {
@@ -68,6 +69,13 @@ class UbicacionController extends Controller
         }catch(Throwable $error){
             return $error->getMessage();
         }
+    }
+
+    //reportes
+    public function reporte(){
+        $conjunto = Ubicacion::All();                
+        return PDF::loadView('reporte_ubicaciones',compact('conjunto'))->stream('Reporte de Ubicaciones.pdf');
+        
     }
 
 }
