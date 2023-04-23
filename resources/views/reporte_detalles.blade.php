@@ -9,6 +9,9 @@
 </head>
 <body>
     <div class="container">
+        <div class="text-center">
+            <img src="{{public_path(). '/images/Logo ScooterFix.png'}}" alt="" width="150" height="150">
+        </div>
         <h1 class="text-center fw-bolder text-success">SCOOTERFIX <i class="bi bi-scooter"></i></h1> 
         <h4 class="text-center font-italic"><u>TABLA DE DETALLES</u></h4>
     </div>

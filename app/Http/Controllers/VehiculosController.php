@@ -12,7 +12,7 @@ class VehiculosController extends Controller
 {
     public function index(Request $request){
         //$conjunto = Vehiculos::All(); //nombre del modelo Vehiculos
-        $conjunto = Vehiculos::paginate(5);
+        $conjunto = Vehiculos::paginate(10);
         return view('vehiculos',['conjunto'=> $conjunto]); //se envia los datos por conjunto
     }
 
@@ -28,6 +28,7 @@ class VehiculosController extends Controller
         $objeto->modelo=$request->modelo;
         try{
             $objeto->save();
+            notify()->preset('alerta-agregar');
             return redirect('/vehiculos');
         }catch(Throwable $error){
             return $error->getMessage();
@@ -47,6 +48,7 @@ class VehiculosController extends Controller
         $id_vehiculo->modelo = $request->modelo;
         try{
             $id_vehiculo ->save();
+            notify()->preset('alerta-editar');
             return redirect('/vehiculos');
         }catch(Throwable $error){
             return $error->getMessage();
@@ -63,22 +65,24 @@ class VehiculosController extends Controller
         $id_vehiculo = Vehiculos::find($idvehiculo);
         try{
             $id_vehiculo ->delete();
+            notify()->preset('alerta-borrar');
             return redirect('/vehiculos');
         }catch(Throwable $error){
-            return $error->getMessage();
+            //return $error->getMessage();
+            notify()->preset('alerta-error');
+            return redirect('/vehiculos');
         }
     }
 
 
     //reportes
     public function reporte(){
-        $conjunto = Vehiculos::All();
-        /* $datos=[
-            'nombre'=> $conjunto['nombre'],
-            'modelo'=> $conjunto['modelo']
-        ]; */
+        $conjunto = Vehiculos::get();
+        $datos=[
+            'conjunto'=> $conjunto
+        ];
 
-        return PDF::loadView('reporte_vehiculos',compact('conjunto'))->stream('Reporte de Vehiculos.pdf');
+        return PDF::loadView('reporte_vehiculos',$datos)->stream('Reporte de Vehiculos.pdf');
         //return view('reporte_vehiculo');
     }
 

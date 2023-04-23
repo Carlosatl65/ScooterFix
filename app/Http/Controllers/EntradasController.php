@@ -13,7 +13,7 @@ class EntradasController extends Controller
 {
     public function index(Request $request){
         //$conjunto = Entradas::All(); //nombre del modelo Vehiculos
-        $conjunto = Entradas::paginate(5);
+        $conjunto = Entradas::paginate(10);
         return view('entradas',['conjunto'=> $conjunto]); //se envia los datos por conjunto
     }
 
@@ -34,6 +34,7 @@ class EntradasController extends Controller
         $objeto->total_pagar=$request->total_pagar;
         try{
             $objeto->save();
+            notify()->preset('alerta-agregar');
             return redirect('/entradas');
         }catch(Throwable $error){
             return $error->getMessage();
@@ -58,6 +59,7 @@ class EntradasController extends Controller
         $id_entradas1->total_pagar = $request->total_pagar;
         try{
             $id_entradas1 ->save();
+            notify()->preset('alerta-editar');
             return redirect('/entradas');
         }catch(Throwable $error){
             return $error->getMessage();
@@ -75,16 +77,27 @@ class EntradasController extends Controller
         $id_entradas1 = Entradas::find($id_entradas);
         try{
             $id_entradas1 ->delete();
+            notify()->preset('alerta-borrar');
             return redirect('/entradas');
         }catch(Throwable $error){
-            return $error->getMessage();
+            //return $error->getMessage();
+            notify()->preset('alerta-error');
+            return redirect('/entradas');
         }
     }
     
     //reportes
     public function reporte(){
-        $conjunto = Entradas::All();
-        return PDF::loadView('reporte_entradas',compact('conjunto'))->stream('Reporte de Entradas.pdf');
+        $conjunto = Entradas::get();
+        $suma_total=0;
+        foreach($conjunto as $item){
+            $suma_total = $item->total_pagar + $suma_total;
+        };
+        $datos=[
+            'conjunto'=>$conjunto,
+            'suma'=>$suma_total 
+        ];
+        return PDF::loadView('reporte_entradas',$datos)->stream('Reporte de Entradas.pdf');
         
     }
 

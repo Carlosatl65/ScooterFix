@@ -10,12 +10,13 @@ use PhpParser\Node\Stmt\TryCatch;
 use Throwable;
 use PDF;
 
+
 class ProductosController extends Controller
 {
     public function index(Request $request){
         //$conjunto = Productos::All(); //nombre del modelo Vehiculos
-        $conjunto = Productos::paginate(5);
-        return view('productos',['conjunto'=> $conjunto]); //se envia los datos por conjunto
+        $conjunto = Productos::paginate(10);
+        return view('productos',compact('conjunto')); //se envia los datos por conjunto
     }
 
     //insertar
@@ -37,6 +38,7 @@ class ProductosController extends Controller
         $objeto->valor_venta=$request->valor_venta;
         try{
             $objeto->save();
+            notify()->preset('alerta-agregar');
             return redirect('/productos');
         }catch(Throwable $error){
             return $error->getMessage();
@@ -64,6 +66,7 @@ class ProductosController extends Controller
         $id_producto1->valor_venta=$request->valor_venta;
         try{
             $id_producto1 ->save();
+            notify()->preset('alerta-editar');
             return redirect('/productos');
         }catch(Throwable $error){
             return $error->getMessage();
@@ -83,18 +86,26 @@ class ProductosController extends Controller
         $id_producto1 = Productos::find($id_producto);
         try{
             $id_producto1 ->delete();
+            notify()->preset('alerta-borrar');
             return redirect('/productos');
         }catch(Throwable $error){
-            return $error->getMessage();
+            notify()->preset('alerta-error');
+            return redirect('/productos');
+            //return $error->getMessage();
         }
     }
 
     //reportes
     public function reporte(){
-        $conjunto = Productos::All();
-        $vehiculo = Vehiculos::All();
-        $ubicacion = Ubicacion::All();                
-        return PDF::loadView('reporte_productos',compact('conjunto','vehiculo','ubicacion'))->stream('Reporte de Productos.pdf');
+        $producto = Productos::get();
+        $vehiculo = Vehiculos::get();
+        $ubicacion = Ubicacion::get();
+        $datos=[
+            'conjunto'=>$producto,
+            'vehiculo' => $vehiculo,
+            'ubicacion' => $ubicacion
+        ];               
+        return PDF::loadView('reporte_productos',$datos)->stream('Reporte de Productos.pdf');
         
     }
 

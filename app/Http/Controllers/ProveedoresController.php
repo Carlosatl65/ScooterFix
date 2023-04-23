@@ -12,7 +12,7 @@ class ProveedoresController extends Controller
 {
     public function index(Request $request){
         //$conjunto = Proveedores::All(); //nombre del modelo Vehiculos
-        $conjunto = Proveedores::paginate(5);
+        $conjunto = Proveedores::paginate(10);
         return view('proveedores',['conjunto'=> $conjunto]); //se envia los datos por conjunto
     }
 
@@ -30,6 +30,7 @@ class ProveedoresController extends Controller
         $objeto->correo_proveedor=$request->correo_proveedor;
         try{
             $objeto->save();
+            notify()->preset('alerta-agregar');
             return redirect('/proveedores');
         }catch(Throwable $error){
             return $error->getMessage();
@@ -51,6 +52,7 @@ class ProveedoresController extends Controller
         $id_proveedor1->correo_proveedor = $request->correo_proveedor;
         try{
             $id_proveedor1 ->save();
+            notify()->preset('alerta-editar');
             return redirect('/proveedores');
         }catch(Throwable $error){
             return $error->getMessage();
@@ -67,17 +69,22 @@ class ProveedoresController extends Controller
         $id_proveedor1 = Proveedores::find($id_proveedor);
         try{
             $id_proveedor1 ->delete();
+            notify()->preset('alerta-borrar');
             return redirect('/proveedores');
         }catch(Throwable $error){
-            return $error->getMessage();
+            //return $error->getMessage();
+            notify()->preset('alerta-error');
+            return redirect('/proveedores');
         }
     }
 
     //reportes
     public function reporte(){
-        $conjunto = Proveedores::All();
-
-        return PDF::loadView('reporte_proveedores',compact('conjunto'))->stream('Reporte de Proveedores.pdf');
+        $conjunto = Proveedores::get();
+        $datos=[
+            'conjunto'=>$conjunto
+        ];
+        return PDF::loadView('reporte_proveedores',$datos)->stream('Reporte de Proveedores.pdf');
         
     }
 
