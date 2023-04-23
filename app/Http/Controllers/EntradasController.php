@@ -13,7 +13,7 @@ class EntradasController extends Controller
 {
     public function index(Request $request){
         //$conjunto = Entradas::All(); //nombre del modelo Vehiculos
-        $conjunto = Entradas::paginate(10);
+        $conjunto = Entradas::with('proveedores')->paginate(10);
         return view('entradas',['conjunto'=> $conjunto]); //se envia los datos por conjunto
     }
 
@@ -88,7 +88,7 @@ class EntradasController extends Controller
     
     //reportes
     public function reporte(){
-        $conjunto = Entradas::get();
+        $conjunto = Entradas::with('proveedores')->get();
         $suma_total=0;
         foreach($conjunto as $item){
             $suma_total = $item->total_pagar + $suma_total;

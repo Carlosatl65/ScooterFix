@@ -11,4 +11,10 @@ class Detalles extends Model
     public $timestamps=false; //hacer que larabel no haga auditoría en las tablas
     protected $table="detalles"; //nombre de la tabla de la base de datos entre comillas
     protected $primaryKey = "id_detalle";
+
+    public function producto()
+    {
+        return $this->belongsTo(Productos::class, 'id_producto');
+    }
+
 }

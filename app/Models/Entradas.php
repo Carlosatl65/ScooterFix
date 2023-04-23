@@ -11,4 +11,9 @@ class Entradas extends Model
     public $timestamps=false; //hacer que larabel no haga auditoría en las tablas
     protected $table="entradas"; //nombre de la base de datos entre comillas
     protected $primaryKey = "id_entradas";
+
+    public function proveedores()
+    {
+        return $this->belongsTo(Proveedores::class, 'id_proveedor');
+    }
 }

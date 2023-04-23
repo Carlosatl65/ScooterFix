@@ -14,7 +14,7 @@ class DetallesController extends Controller
 {
     public function index(Request $request){
         //$conjunto = Detalles::All(); //nombre del modelo Vehiculos
-        $conjunto = Detalles::paginate(10);
+        $conjunto = Detalles::with('producto')->paginate(10);
         return view('detalles',['conjunto'=> $conjunto]); //se envia los datos por conjunto
     }
 
@@ -90,7 +90,7 @@ class DetallesController extends Controller
 
     //reportes
     public function reporte(){
-        $conjunto = Detalles::get();
+        $conjunto = Detalles::with('producto')->get();
         $datos=[
             'conjunto'=>$conjunto
         ];

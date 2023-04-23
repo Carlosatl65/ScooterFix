@@ -35,7 +35,7 @@
     @foreach($conjunto as $item)
     <tr>
         <th>{{$item->fecha_entrada}}</th>
-        <th>{{$item->id_proveedor}}</th>
+        <th>{{$item->proveedores->nombre_proveedor}}</th>
         <th>{{$item->subtotal}}</th>
         <th>{{$item->iva_0}}</th>
         <th>{{$item->iva_12}}</th>

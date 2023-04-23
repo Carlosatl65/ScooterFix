@@ -1,8 +1,10 @@
 @extends ('layouts.menu')
 @section ('cuerpo_pagina')
+<br><br><br><br>
 <div class="container-fluid">
-    <div class="text-center">
-        <img src="{{public_path(). '/images/Logo ScooterFix.png'}}" alt="" width="150" height="150">
+    <div class="d-flex justify-content-center align-items-center">
+        <img src="{{asset('images/Logo ScooterFix.png')}}" alt="" width="700" height="700" class="img-fluid">
     </div>
 </div>
+
 @endsection

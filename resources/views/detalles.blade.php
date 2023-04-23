@@ -33,7 +33,7 @@
   <tbody class="table-group-divider">
     @foreach($conjunto as $item)
     <tr>
-        <th>{{$item->id_producto}}</th>
+        <th>{{$item->producto->nombre}}</th>
         <th>{{$item->id_entradas}}</th>
         <th>{{$item->cantidad}}</th>
         <th>{{$item->valor_unitario}}</th>
