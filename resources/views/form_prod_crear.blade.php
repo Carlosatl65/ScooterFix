@@ -6,11 +6,11 @@
             @csrf ()
             <div class="form-group">
                 <label class="form-label">Nombre del Producto</label>
-                <input type="text" class="form-control" name="nombre" placeholder="Nombre">
+                <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Descripción del Producto</label>
-                <textarea class="form-control"  rows="3" name="descripcion" placeholder="Descripción..."></textarea>
+                <textarea class="form-control"  rows="3" name="descripcion" placeholder="Descripción..." required></textarea>
             </div>
             <div class="form-group">
                 <label class="form-label">Vehículo</label>
@@ -32,15 +32,15 @@
             </div>
             <div class="form-group">
                 <label class="form-label">Unidades</label>
-                <input type="number" class="form-control" name="unidades" placeholder="Unidades">
+                <input type="number" class="form-control" name="unidades" placeholder="Unidades" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Precio de Compra</label>
-                <input type="number" step="0.01" class="form-control" name="precio_compra" placeholder="Precio de compra">
+                <input type="number" step="0.01" class="form-control" name="precio_compra" placeholder="Precio de compra" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Valor de Venta</label>
-                <input type="number" step="0.01" class="form-control" name="valor_venta" placeholder="Valor de venta">
+                <input type="number" step="0.01" class="form-control" name="valor_venta" placeholder="Valor de venta" required>
             </div><br>
             <button class="btn btn-primary">Crear</button>
         </form>

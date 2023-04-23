@@ -9,7 +9,7 @@
             @csrf ()
             <div class="form-group">
                 <label class="form-label">Fecha de ingreso</label>
-                <input type="date" class="form-control" name="fecha_entrada" value="{{$registro->fecha_entrada}}">
+                <input type="date" class="form-control" name="fecha_entrada" value="{{$registro->fecha_entrada}}" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Proveedor</label>
@@ -22,19 +22,19 @@
             </div>
             <div class="form-group">
                 <label class="form-label">Subtotal</label>
-                <input type="number" step="0.01" class="form-control" name="subtotal" placeholder="Subtotal" value="{{$registro->subtotal}}">
+                <input type="number" step="0.01" class="form-control" name="subtotal" placeholder="Subtotal" value="{{$registro->subtotal}}" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Iva 0%</label>
-                <input type="number" step="0.01" class="form-control" name="iva_0" placeholder="Iva 0%" value="{{$registro->iva_0}}">
+                <input type="number" step="0.01" class="form-control" name="iva_0" placeholder="Iva 0%" value="{{$registro->iva_0}}" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Iva 12%</label>
-                <input type="number" step="0.01" class="form-control" name="iva_12" placeholder="Iva 12%" value="{{$registro->iva_12}}">
+                <input type="number" step="0.01" class="form-control" name="iva_12" placeholder="Iva 12%" value="{{$registro->iva_12}}" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Total a pagar</label>
-                <input type="number" step="0.01" class="form-control" name="total_pagar" placeholder="Total a pagar" value="{{$registro->total_pagar}}">
+                <input type="number" step="0.01" class="form-control" name="total_pagar" placeholder="Total a pagar" value="{{$registro->total_pagar}}" required>
             </div><br>
             <button class="btn btn-warning">Editar</button>
         </form>

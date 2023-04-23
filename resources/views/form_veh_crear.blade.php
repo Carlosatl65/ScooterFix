@@ -6,11 +6,11 @@
             @csrf ()
             <div class="form-group">
                 <label class="form-label">Nombre de Vehículo</label>
-                <input type="text" class="form-control" name="nombre" placeholder="Nombre">
+                <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Modelo de Vehículo</label>
-                <input type="text" class="form-control" name="modelo" placeholder="Modelo">
+                <input type="text" class="form-control" name="modelo" placeholder="Modelo" required>
             </div><br>
             <button class="btn btn-primary">Crear</button>
         </form>

@@ -7,11 +7,11 @@
             @csrf ()
             <div class="form-group">
                 <label class="form-label">Nombre de Vehículo</label>
-                <input type="text" class="form-control" name="nombre" placeholder="Nombre" value="{{$registro->nombre}}">
+                <input type="text" class="form-control" name="nombre" placeholder="Nombre" value="{{$registro->nombre}}" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Modelo de Vehículo</label>
-                <input type="text" class="form-control" name="modelo" placeholder="Modelo" value="{{$registro->modelo}}">
+                <input type="text" class="form-control" name="modelo" placeholder="Modelo" value="{{$registro->modelo}}" required>
             </div><br>
             <button class="btn btn-warning">Editar</button>
         </form>

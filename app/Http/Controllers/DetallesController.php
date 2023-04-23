@@ -14,7 +14,7 @@ class DetallesController extends Controller
 {
     public function index(Request $request){
         //$conjunto = Detalles::All(); //nombre del modelo Vehiculos
-        $conjunto = Detalles::paginate(5);
+        $conjunto = Detalles::paginate(10);
         return view('detalles',['conjunto'=> $conjunto]); //se envia los datos por conjunto
     }
 
@@ -35,6 +35,7 @@ class DetallesController extends Controller
         $objeto->valor_total=$request->valor_total;
         try{
             $objeto->save();
+            notify()->preset('alerta-agregar');
             return redirect('/detalles');
         }catch(Throwable $error){
             return $error->getMessage();
@@ -59,6 +60,7 @@ class DetallesController extends Controller
         $id_detalle1->valor_total = $request->valor_total;
         try{
             $id_detalle1 ->save();
+            notify()->preset('alerta-editar');
             return redirect('/detalles');
         }catch(Throwable $error){
             return $error->getMessage();
@@ -77,16 +79,22 @@ class DetallesController extends Controller
         $id_detalle1 = Detalles::find($id_detalle);
         try{
             $id_detalle1 ->delete();
+            notify()->preset('alerta-borrar');
             return redirect('/detalles');
         }catch(Throwable $error){
-            return $error->getMessage();
+            //return $error->getMessage();
+            notify()->preset('alerta-error');
+            return redirect('/detalles');
         }
     }
 
     //reportes
     public function reporte(){
-        $conjunto = Detalles::All();
-        return PDF::loadView('reporte_detalles',compact('conjunto'))->stream('Reporte de Detalles.pdf');
+        $conjunto = Detalles::get();
+        $datos=[
+            'conjunto'=>$conjunto
+        ];
+        return PDF::loadView('reporte_detalles',$datos)->stream('Reporte de Detalles.pdf');
         
     }
 

@@ -25,15 +25,15 @@
             </div>
             <div class="form-group">
                 <label class="form-label">Cantidad</label>
-                <input type="number" class="form-control" name="cantidad" placeholder="Cantidad">
+                <input type="number" class="form-control" name="cantidad" placeholder="Cantidad" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Valor Unitario</label>
-                <input type="number" step="0.01" class="form-control" name="valor_unitario" placeholder="Valor U.">
+                <input type="number" step="0.01" class="form-control" name="valor_unitario" placeholder="Valor U." required>
             </div>
             <div class="form-group">
                 <label class="form-label">Valor Total</label>
-                <input type="number" step="0.01" class="form-control" name="valor_total" placeholder="Valor T.">
+                <input type="number" step="0.01" class="form-control" name="valor_total" placeholder="Valor T." required>
             </div><br>
             <button class="btn btn-primary">Crear</button>
         </form>

@@ -34,9 +34,10 @@
   </thead>
   <tbody class="table-group-divider">
     @foreach($conjunto as $item)
+    
     <tr>
         <th>{{$item->nombre}}</th>
-        <th>{{$item->descripcion}}</th>
+        <th>{{$item->descripcion}}</th> 
         <th>{{$item->id_vehiculo}}</th>
         <th>{{$item->id_ubicacion}}</th>
         <th>{{$item->unidades}}</th>
@@ -47,11 +48,12 @@
             <a type="button" class="btn btn-danger btn-sm" href="{{route('prod.borrar',$item->id_producto)}}"><i class="bi bi-trash-fill"></i></a>
         </td>
     </tr>
+    
     @endforeach
   </tbody>
 </table>
 <div class="d-flex justify-content-end">
-{{$conjunto->links()}}
+  {{$conjunto->links()}}
 </div>
 </div>
 

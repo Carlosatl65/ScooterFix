@@ -12,7 +12,7 @@ class UbicacionController extends Controller
 {
     public function index(Request $request){
         //$conjunto = Ubicacion::All(); //nombre del modelo Vehiculos
-        $conjunto = Ubicacion::paginate(5);
+        $conjunto = Ubicacion::paginate(10);
         return view('ubicaciones',['conjunto'=> $conjunto]); //se envia los datos por conjunto
     }
 
@@ -29,6 +29,7 @@ class UbicacionController extends Controller
         $objeto->anaquel=$request->anaquel;
         try{
             $objeto->save();
+            notify()->preset('alerta-agregar');
             return redirect('/ubicaciones');
         }catch(Throwable $error){
             return $error->getMessage();
@@ -49,6 +50,7 @@ class UbicacionController extends Controller
         $id_ubicacion1->anaquel = $request->anaquel;
         try{
             $id_ubicacion1 ->save();
+            notify()->preset('alerta-editar');
             return redirect('/ubicaciones');
         }catch(Throwable $error){
             return $error->getMessage();
@@ -65,16 +67,22 @@ class UbicacionController extends Controller
         $id_ubicacion1 = Ubicacion::find($id_ubicacion);
         try{
             $id_ubicacion1 ->delete();
+            notify()->preset('alerta-borrar');
             return redirect('/ubicaciones');
         }catch(Throwable $error){
-            return $error->getMessage();
+            //return $error->getMessage();
+            notify()->preset('alerta-error');
+            return redirect('/ubicaciones');
         }
     }
 
     //reportes
     public function reporte(){
-        $conjunto = Ubicacion::All();                
-        return PDF::loadView('reporte_ubicaciones',compact('conjunto'))->stream('Reporte de Ubicaciones.pdf');
+        $conjunto = Ubicacion::get();
+        $datos=[
+            'conjunto'=> $conjunto
+        ];                
+        return PDF::loadView('reporte_ubicaciones',$datos)->stream('Reporte de Ubicaciones.pdf');
         
     }
 

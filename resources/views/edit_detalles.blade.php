@@ -26,15 +26,15 @@
             </div>
             <div class="form-group">
                 <label class="form-label">Cantidad</label>
-                <input type="number" class="form-control" name="cantidad" placeholder="Cantidad" value="{{$registro->cantidad}}">
+                <input type="number" class="form-control" name="cantidad" placeholder="Cantidad" value="{{$registro->cantidad}}" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Valor Unitario</label>
-                <input type="number" step="0.01" class="form-control" name="valor_unitario" placeholder="Valor U." value="{{$registro->valor_unitario}}">
+                <input type="number" step="0.01" class="form-control" name="valor_unitario" placeholder="Valor U." value="{{$registro->valor_unitario}}" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Valor Total</label>
-                <input type="number" step="0.01" class="form-control" name="valor_total" placeholder="Valor T." value="{{$registro->valor_total}}">
+                <input type="number" step="0.01" class="form-control" name="valor_total" placeholder="Valor T." value="{{$registro->valor_total}}" required>
             </div><br>
             <button class="btn btn-warning">Editar</button>
         </form>

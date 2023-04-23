@@ -6,15 +6,15 @@
             @csrf ()
             <div class="form-group">
                 <label class="form-label">Nombre de Ubicación</label>
-                <input type="text" class="form-control" name="nombre" placeholder="Nombre de ubicación">
+                <input type="text" class="form-control" name="nombre" placeholder="Nombre de ubicación" maxlength="4" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Número de Fila</label>
-                <input type="number" class="form-control" name="fila" placeholder="Fila">
+                <input type="number" class="form-control" name="fila" placeholder="Fila" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Número de Anaquel</label>
-                <input type="number" class="form-control" name="anaquel" placeholder="Anaquel">
+                <input type="number" class="form-control" name="anaquel" placeholder="Anaquel" required>
             </div><br>
             <button class="btn btn-primary">Crear</button>
         </form>

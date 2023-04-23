@@ -8,7 +8,7 @@
             @csrf ()
             <div class="form-group">
                 <label class="form-label">Fecha de ingreso</label>
-                <input type="date" class="form-control" name="fecha_entrada">
+                <input type="date" class="form-control" name="fecha_entrada" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Proveedor</label>
@@ -21,19 +21,19 @@
             </div>
             <div class="form-group">
                 <label class="form-label">Subtotal</label>
-                <input type="number" step="0.01" class="form-control" name="subtotal" placeholder="Subtotal">
+                <input type="number" step="0.01" class="form-control" name="subtotal" placeholder="Subtotal" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Iva 0%</label>
-                <input type="number" step="0.01" class="form-control" name="iva_0" placeholder="Iva 0%">
+                <input type="number" step="0.01" class="form-control" name="iva_0" placeholder="Iva 0%" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Iva 12%</label>
-                <input type="number" step="0.01" class="form-control" name="iva_12" placeholder="Iva 12%">
+                <input type="number" step="0.01" class="form-control" name="iva_12" placeholder="Iva 12%" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Total a pagar</label>
-                <input type="number" step="0.01" class="form-control" name="total_pagar" placeholder="Total a pagar">
+                <input type="number" step="0.01" class="form-control" name="total_pagar" placeholder="Total a pagar" required>
             </div><br>
             <button class="btn btn-primary">Crear</button>
         </form>

@@ -7,11 +7,11 @@
             @csrf ()
             <div class="form-group">
                 <label class="form-label">Nombre del Producto</label>
-                <input type="text" class="form-control" name="nombre" placeholder="Nombre" value="{{$registro->nombre}}">
+                <input type="text" class="form-control" name="nombre" placeholder="Nombre" value="{{$registro->nombre}}" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Descripción del Producto</label>
-                <textarea class="form-control"  rows="3" name="descripcion" placeholder="Descripción...">{{$registro->descripcion}}</textarea>
+                <textarea class="form-control"  rows="3" name="descripcion" placeholder="Descripción..." required>{{$registro->descripcion}}</textarea>
             </div>
             <div class="form-group">
                 <label class="form-label">Vehículo</label>
@@ -33,15 +33,15 @@
             </div>
             <div class="form-group">
                 <label class="form-label">Unidades</label>
-                <input type="number" class="form-control" name="unidades" placeholder="Unidades" value="{{$registro->unidades}}">
+                <input type="number" class="form-control" name="unidades" placeholder="Unidades" value="{{$registro->unidades}}" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Precio de Compra</label>
-                <input type="number" step="0.01" class="form-control" name="precio_compra" placeholder="Precio de compra" value="{{$registro->precio_compra}}">
+                <input type="number" step="0.01" class="form-control" name="precio_compra" placeholder="Precio de compra" value="{{$registro->precio_compra}}" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Valor de Venta</label>
-                <input type="number" step="0.01" class="form-control" name="valor_venta" placeholder="Valor de venta" value="{{$registro->valor_venta}}">
+                <input type="number" step="0.01" class="form-control" name="valor_venta" placeholder="Valor de venta" value="{{$registro->valor_venta}}" required>
             </div><br>
             <button class="btn btn-warning">Editar</button>
         </form>

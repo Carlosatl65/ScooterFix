@@ -7,15 +7,15 @@
             @csrf ()
             <div class="form-group">
                 <label class="form-label">Nombre de Ubicación</label>
-                <input type="text" class="form-control" name="nombre" placeholder="Nombre de ubicación" value="{{$registro->nombre}}">
+                <input type="text" class="form-control" name="nombre" placeholder="Nombre de ubicación" value="{{$registro->nombre}}" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Número de Fila</label>
-                <input type="number" class="form-control" name="fila" placeholder="Fila" value="{{$registro->fila}}">
+                <input type="number" class="form-control" name="fila" placeholder="Fila" value="{{$registro->fila}}" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Número de Anaquel</label>
-                <input type="number" class="form-control" name="anaquel" placeholder="Anaquel" value="{{$registro->anaquel}}">
+                <input type="number" class="form-control" name="anaquel" placeholder="Anaquel" value="{{$registro->anaquel}}" required>
             </div><br>
             <button class="btn btn-warning">Editar</button>
         </form>

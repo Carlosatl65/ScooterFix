@@ -9,7 +9,10 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center fw-bolder text-success">SCOOTERFIX <i class="bi bi-scooter"></i></h1> 
+        <div class="text-center">
+            <img src="{{public_path(). '/images/Logo ScooterFix.png'}}" alt="" width="150" height="150">
+        </div>
+        <h1 class="text-center fw-bolder text-success">SCOOTERFIX</h1> 
         <h4 class="text-center font-italic"><u>TABLA DE ENTRADAS</u></h4>
     </div>
     <div class="container-fluid">
@@ -36,6 +39,11 @@
                 <td>{{$item->total_pagar}}</td>
             </tr>
             @endforeach
+            <tr>
+                <td colspan="4"></td>
+                <th class="bg-success text-white">SUMATORIA TOTAL</th>
+                <td class="text-danger">{{$suma}}</td>
+            </tr>
             </tbody>
         </table>
     </div>
