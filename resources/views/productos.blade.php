@@ -38,8 +38,8 @@
     <tr>
         <th>{{$item->nombre}}</th>
         <th>{{$item->descripcion}}</th> 
-        <th>{{$item->id_vehiculo}}</th>
-        <th>{{$item->id_ubicacion}}</th>
+        <th>{{$item->vehiculos->nombre}}</th>
+        <th>{{$item->ubicacion->nombre}}</th>
         <th>{{$item->unidades}}</th>
         <th>{{$item->precio_compra}}</th>
         <th>{{$item->valor_venta}}</th>

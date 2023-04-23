@@ -32,7 +32,7 @@
             @foreach($conjunto as $item)
             <tr>
                 <td>{{$item->fecha_entrada}}</td>
-                <td>{{$item->id_proveedor}}</td>
+                <td>{{$item->proveedores->nombre_proveedor}}</td>
                 <td>{{$item->subtotal}}</td>
                 <td>{{$item->iva_0}}</td>
                 <td>{{$item->iva_12}}</td>

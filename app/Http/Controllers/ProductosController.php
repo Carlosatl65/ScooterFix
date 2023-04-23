@@ -15,7 +15,8 @@ class ProductosController extends Controller
 {
     public function index(Request $request){
         //$conjunto = Productos::All(); //nombre del modelo Vehiculos
-        $conjunto = Productos::paginate(10);
+        //$conjunto = Productos::paginate(10);
+        $conjunto = Productos::with('ubicacion','vehiculos')->paginate(10);
         return view('productos',compact('conjunto')); //se envia los datos por conjunto
     }
 
@@ -97,13 +98,12 @@ class ProductosController extends Controller
 
     //reportes
     public function reporte(){
-        $producto = Productos::get();
-        $vehiculo = Vehiculos::get();
-        $ubicacion = Ubicacion::get();
+        $conjunto = Productos::with('ubicacion','vehiculos')->get();
+        //$producto = Productos::get();
+        //$vehiculo = Vehiculos::get();
+        //$ubicacion = Ubicacion::get();
         $datos=[
-            'conjunto'=>$producto,
-            'vehiculo' => $vehiculo,
-            'ubicacion' => $ubicacion
+            'conjunto'=>$conjunto,
         ];               
         return PDF::loadView('reporte_productos',$datos)->stream('Reporte de Productos.pdf');
         
